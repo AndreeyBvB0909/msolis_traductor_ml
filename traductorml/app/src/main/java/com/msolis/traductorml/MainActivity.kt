@@ -1,6 +1,7 @@
 package com.msolis.traductorml
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -9,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
+import com.google.mlkit.nl.translate.TranslateLanguage
+import com.msolis.traductorml.Modelo.Idioma
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +21,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var Btn_Elegir_Idioma : MaterialButton
     private lateinit var Btn_Idioma_Elegido : MaterialButton
     private lateinit var Btn_Traducir : MaterialButton
+
+    private var IdiomasArrayList : ArrayList<Idioma> ?= null
+
+    companion object{
+        private const val REGISTRO = "Mis_registros"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         InicializarVistas()
+        IdiomasDisponibles()
 
         Btn_Elegir_Idioma.setOnClickListener {
             Toast.makeText(applicationContext, "Elegir idioma", Toast.LENGTH_SHORT).show()
@@ -47,5 +58,24 @@ class MainActivity : AppCompatActivity() {
         Btn_Elegir_Idioma = findViewById(R.id.Btn_Elegir_Idioma)
         Btn_Idioma_Elegido = findViewById(R.id.Btn_Idioma_Elegido)
         Btn_Traducir = findViewById(R.id.Btn_Traducir)
+    }
+
+    private fun IdiomasDisponibles(){
+        IdiomasArrayList = ArrayList()
+
+        val ListaCodigoIdioma = TranslateLanguage.getAllLanguages()
+
+        for(codigo_lenguaje in ListaCodigoIdioma){
+
+            val titulo_lenguaje = Locale(codigo_lenguaje).displayLanguage
+
+            Log.d(REGISTRO, "IdiomasDisponibles : codigo_lenguaje $codigo_lenguaje")
+            Log.d(REGISTRO, "IdiomasDisponibles : titulo_lenguaje $titulo_lenguaje")
+
+            val modeloIdioma = Idioma(codigo_lenguaje, titulo_lenguaje)
+
+            IdiomasArrayList!!.add(modeloIdioma)
+
+        }
     }
 }
