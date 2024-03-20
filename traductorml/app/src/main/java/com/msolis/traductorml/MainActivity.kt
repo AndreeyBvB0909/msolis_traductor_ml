@@ -4,6 +4,8 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.EditText
 import android.widget.PopupMenu
 import android.widget.TextView
@@ -205,5 +207,25 @@ class MainActivity : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Toast.makeText(applicationContext, "$e", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater : MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_traductor, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.Limpiar_texto -> {
+                val S_traduccion = "Traducción"
+                Et_Idioma_Origen.setText("")
+                Et_Idioma_Origen.hint = "Ingrese texto"
+                Tv_Idioma_Destino.text = S_traduccion
+
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

@@ -5,4 +5,6 @@
     <string name="Btn_Elegir_Idioma">Español</string>
     <string name="Btn_Idioma_Elegido">Inglés</string>
     <string name="Btn_Traducir">Traducir</string>
+
+    <string name="Limpiar_texto">Limpiar</string>
 </resources>
