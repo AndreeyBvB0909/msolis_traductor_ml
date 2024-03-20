@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity() {
     private var codigo_idioma_origen = "es"
     private var titulo_idioma_origen = "Español"
 
+    private var codigo_idioma_destino = "en"
+    private var titulo_idioma_destino = "Inglés"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -51,7 +54,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         Btn_Idioma_Elegido.setOnClickListener {
-            Toast.makeText(applicationContext, "Idioma elegido", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext, "Idioma elegido", Toast.LENGTH_SHORT).show()
+            ElegirIdiomaDestino()
         }
 
         Btn_Traducir.setOnClickListener {
@@ -106,6 +110,31 @@ class MainActivity : AppCompatActivity() {
 
             Log.d(REGISTRO, "ElegirIdiomaOrigen : codigo_idioma_origen $codigo_idioma_origen")
             Log.d(REGISTRO, "ElegirIdiomaOrigen : titulo_idioma_origen $titulo_idioma_origen")
+
+
+            false
+        }
+    }
+
+    private fun ElegirIdiomaDestino(){
+        val popupMenu = PopupMenu(this, Btn_Idioma_Elegido)
+
+        for(i in IdiomasArrayList!!.indices){
+            popupMenu.menu.add(Menu.NONE, i, i, IdiomasArrayList!![i].titulo_idioma)
+        }
+        popupMenu.show()
+
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+
+            val position = menuItem.itemId
+
+            codigo_idioma_destino = IdiomasArrayList!![position].codigo_idioma
+            titulo_idioma_destino = IdiomasArrayList!![position].titulo_idioma
+
+            Btn_Idioma_Elegido.text = titulo_idioma_destino
+
+            Log.d(REGISTRO, "ElegirIdiomaDestino : codigo_idioma_destino $codigo_idioma_destino")
+            Log.d(REGISTRO, "ElegirIdiomaDestino : titulo_idioma_destino $titulo_idioma_destino")
 
 
             false
