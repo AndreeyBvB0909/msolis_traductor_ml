@@ -46,5 +46,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.google.mlkit:translate:17.0.2")
+    implementation ("com.airbnb.android:lottie:4.2.1")
 
 }

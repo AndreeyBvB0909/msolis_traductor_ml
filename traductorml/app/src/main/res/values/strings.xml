@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Traductor ML</string>
+    <string name="Tv_bienvenida">Welcome</string>
     <string name="Et_Idioma_Origen">Ingrese texto</string>
     <string name="Tv_Idioma_destino">Traducción</string>
     <string name="Btn_Elegir_Idioma">Español</string>
