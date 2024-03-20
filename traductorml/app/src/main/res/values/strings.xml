@@ -7,5 +7,9 @@
     <string name="Btn_Idioma_Elegido">Inglés</string>
     <string name="Btn_Traducir">Traducir</string>
 
-    <string name="Limpiar_texto">Limpiar</string>
+    <string name="Menu_Limpiar_texto">Limpiar</string>
+    <string name="Menu_Informacion">Información</string>
+
+    <string name="Txt_mensaje">Se requiere de una conexión wifi para descaragar los paquetes de idiomas</string>
+    <string name="Btn_entendido">Entendido</string>
 </resources>

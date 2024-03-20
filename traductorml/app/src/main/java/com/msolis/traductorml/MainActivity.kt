@@ -1,11 +1,13 @@
 package com.msolis.traductorml
 
+import android.app.Dialog
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.EditText
 import android.widget.PopupMenu
 import android.widget.TextView
@@ -51,13 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         InicializarVistas()
         IdiomasDisponibles()
 
@@ -209,6 +205,21 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
+    private fun MostrarDialog(){
+        val Btn_entendido : Button
+        val dialog = Dialog(this@MainActivity)
+
+        dialog.setContentView(R.layout.custom_dialog)
+        Btn_entendido = dialog.findViewById(R.id.Btn_entendido)
+
+        Btn_entendido.setOnClickListener{
+            dialog.dismiss()
+        }
+
+        dialog.show()
+        dialog.setCanceledOnTouchOutside(false)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater : MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_traductor, menu)
@@ -217,7 +228,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-            R.id.Limpiar_texto -> {
+            R.id.Menu_Limpiar_texto -> {
                 val S_traduccion = "Traducción"
                 Et_Idioma_Origen.setText("")
                 Et_Idioma_Origen.hint = "Ingrese texto"
@@ -225,6 +236,12 @@ class MainActivity : AppCompatActivity() {
 
                 true
             }
+
+            R.id.Menu_Informacion -> {
+                MostrarDialog()
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
