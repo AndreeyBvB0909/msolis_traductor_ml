@@ -30,6 +30,7 @@
                 android:layout_marginTop="15dp"
                 android:minHeight="100dp"
                 android:textSize="18sp"
+                android:fontFamily="@font/montserrat_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -37,6 +38,7 @@
                 android:text="@string/Tv_Idioma_destino"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_italic"
                 android:textStyle="bold|italic"
                 android:textSize="18sp"/>
         </LinearLayout>
@@ -53,6 +55,7 @@
             android:text="@string/Btn_Elegir_Idioma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
             app:cornerRadius="10dp"
             android:layout_weight="1"/>
         <ImageButton
@@ -67,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cornerRadius="10dp"
+            android:fontFamily="@font/montserrat_bold"
             android:layout_weight="1"/>
     </LinearLayout>
     <com.google.android.material.button.MaterialButton
@@ -75,6 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:fontFamily="@font/montserrat_bold"
         app:cornerRadius="10dp"
         />
 
