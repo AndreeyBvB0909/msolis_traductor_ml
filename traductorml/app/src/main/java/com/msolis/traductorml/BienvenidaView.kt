@@ -1,6 +1,8 @@
 package com.msolis.traductorml
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.activity.enableEdgeToEdge
@@ -10,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class BienvenidaView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_bienvenida_view)

@@ -24,6 +24,10 @@ import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
 import com.msolis.traductorml.Modelo.Idioma
 import java.util.Locale
+import android.graphics.drawable.ColorDrawable
+import android.graphics.Color
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,6 +60,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         InicializarVistas()
         IdiomasDisponibles()
+
+        val actionBar = supportActionBar
+        actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#5898ff")))
 
         Btn_Elegir_Idioma.setOnClickListener {
             //Toast.makeText(applicationContext, "Elegir idioma", Toast.LENGTH_SHORT).show()
